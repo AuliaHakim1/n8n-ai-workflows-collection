@@ -1,0 +1,159 @@
+{
+  "name": "13 maret",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "availableInChat": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "22528417-9b58-4553-b376-07e7817f84c7",
+      "name": "When chat message received",
+      "webhookId": "c99ee882-a179-4727-af57-c8d4f2c5d4c2"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "\"Anda adalah asisten FAQ spesialis pemasaran. Jawab hanya berdasarkan Google Sheets. Jika tidak ada data, sarankan hubungi tim support.\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -192,
+        0
+      ],
+      "id": "9147a14e-e6af-4c43-8e75-a58bb908d982",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        208
+      ],
+      "id": "7bc4e8bb-839a-40fb-89de-358a1b5f67fb",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "shf0A0L4aEUllfCW",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1aJ2HlnUKJdV8l2wu9XQZlQ5wXg5kNGXJl8zKHiqItIo",
+          "mode": "list",
+          "cachedResultName": "04-06 Pertanyaan untuk studi kasus chatbot",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aJ2HlnUKJdV8l2wu9XQZlQ5wXg5kNGXJl8zKHiqItIo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1aJ2HlnUKJdV8l2wu9XQZlQ5wXg5kNGXJl8zKHiqItIo/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -48,
+        208
+      ],
+      "id": "14bcfedc-976a-4474-97b7-f12d1914d620",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Wk87Q1L4XduLuOv5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -240,
+        224
+      ],
+      "id": "77794299-46a0-4f48-9e75-879475decc23",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "5928ac86-3c64-4190-8eb7-c4a1b7cf0f90",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "rPB9dBLkQyUjF1N5",
+  "tags": []
+}

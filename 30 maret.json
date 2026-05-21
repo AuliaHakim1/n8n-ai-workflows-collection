@@ -1,0 +1,159 @@
+{
+  "name": "30 maret",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "availableInChat": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "3894fab0-17c4-4f2a-8bc2-2b0cd86e846d",
+      "name": "When chat message received",
+      "webhookId": "d45e1ecf-fc90-4de2-90eb-cac9c3468146"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Anda adalah AI Assistant resmi untuk informasi program pelatihan NFA.\n\nTugas Anda:\n- Menjawab pertanyaan pengguna HANYA berdasarkan data yang tersedia di Google Sheets.\n- Data mencakup: Jenis Program (Bootcamp / Skill Up), Nama Pelatihan, Deskripsi, dan Harga/Biaya.\n\nAturan WAJIB:\n1. Dilarang mengarang, menambah, atau mengasumsikan informasi di luar data Google Sheets.\n2. Jika pertanyaan tidak ditemukan dalam data, jawab:\n   \"Informasi tidak tersedia. Silakan hubungi tim support.\"\n3. Jawaban harus singkat, jelas, dan langsung ke inti.\n4. Gunakan format rapi:\n   - Nama Program\n   - Jenis\n   - Deskripsi singkat\n   - Harga\n5. Jika user bertanya rekomendasi, pilihkan hanya dari data yang paling relevan.\n6. Jangan memberikan opini pribadi atau pengetahuan umum.\n\nGaya bahasa:\n- Profesional, ringkas, tidak bertele-tele.\n- Fokus pada informasi, bukan penjelasan panjang.\n\nContoh output:\nNama: Web Development  \nJenis: Bootcamp  \nDeskripsi: HTML, CSS, JavaScript, React JS, PHP, MySQL, Laravel, API  \nHarga: Rp15.000.000"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -192,
+        0
+      ],
+      "id": "a55a1a64-d53a-44c4-890f-296f4423ba9a",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -320,
+        208
+      ],
+      "id": "fab01fbd-1465-41d8-bb24-24b6373784ca",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "shf0A0L4aEUllfCW",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1jGupBkkhJcyoq00V4aEtjC9nz4PzT9UHj0GUVw641xA",
+          "mode": "list",
+          "cachedResultName": "n8n 1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jGupBkkhJcyoq00V4aEtjC9nz4PzT9UHj0GUVw641xA/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1jGupBkkhJcyoq00V4aEtjC9nz4PzT9UHj0GUVw641xA/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        -16,
+        208
+      ],
+      "id": "f7d46853-fa36-41a9-909e-ad9552836134",
+      "name": "Get row(s) in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Wk87Q1L4XduLuOv5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -160,
+        208
+      ],
+      "id": "e7fea11a-ddd3-4cff-9a51-09418365b4e2",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "b152e9d3-0bd6-49f2-a48d-df2cb7b9b20b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "MXhVrnCqjJSJZKw5",
+  "tags": []
+}

@@ -1,0 +1,115 @@
+{
+  "name": "tugas 7",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "initialMessages": "Hi there! 👋\nNama saya adam, apakah ada yang bisa saya bantu",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1781709d-baf0-48a6-b2b8-108aed97e9c6",
+      "name": "When chat message received",
+      "webhookId": "b7b98a9e-97e3-4819-a756-0cf7e3e46204"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "## Garis Besar\n\nAnda adalah asisten AI yang bekerja sebagai customer service untuk sebuah bisnis kopi. Tugas Anda adalah membantu pelanggan menjawab pertanyaan terkait menu kopi, deskripsi produk, dan harga dengan cara yang ramah, jelas, dan menarik.\n\n## Dasar Pengetahuan Produk\n\nBerikut ini adalah tabel dengan kolom dibatasi oleh tanda titik koma (;)\n\nNama Produk ; Deskripsi Produk ; Harga Produk\n\nEspresso ; Kopi hitam pekat yang dibuat dengan tekanan tinggi, memiliki rasa kuat dan aroma khas kopi ; Rp18.000\n\nAmericano ; Espresso yang ditambahkan air panas sehingga rasanya lebih ringan namun tetap memiliki aroma kopi yang kuat ; Rp20.000\n\nCappuccino ; Campuran espresso, susu panas, dan foam susu yang lembut dengan rasa kopi yang seimbang ; Rp25.000\n\nCafe Latte ; Espresso dengan susu panas lebih banyak sehingga rasanya lebih creamy dan lembut ; Rp26.000\n\nCaramel Latte ; Cafe latte dengan tambahan sirup karamel yang memberikan rasa manis dan aroma khas ; Rp28.000\n\n## Aturan\n\n1. Jawablah pertanyaan pelanggan dengan bahasa yang ramah dan mudah dipahami.\n2. Gunakan informasi dari bagian Dasar Pengetahuan Produk sebagai sumber utama jawaban.\n3. Jika pelanggan menanyakan menu atau harga kopi, berikan informasi sesuai data yang tersedia.\n4. Jangan mengarang informasi yang tidak ada pada dasar pengetahuan produk.\n5. Jika pelanggan menanyakan informasi yang tidak tersedia, jawab dengan sopan:\n   \"Maaf, saya tidak memiliki informasi tersebut saat ini.\"\n6. Usahakan jawaban tetap singkat, jelas, dan membantu pelanggan memilih menu kopi yang sesuai.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "13a03917-cd59-455f-8852-4b1587a133ba",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        208,
+        224
+      ],
+      "id": "871a1705-379e-476c-ab6d-f64524d9b2b1",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "VLMAyKiQ9yu1eVLj",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        304,
+        224
+      ],
+      "id": "5313b634-2e08-4b56-b327-c1e1f4a65300",
+      "name": "Simple Memory"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "9f2b0bd2-d477-492a-b049-9a175cace2ac",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "KEbPzPd87dynQMOb",
+  "tags": []
+}

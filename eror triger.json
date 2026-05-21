@@ -1,0 +1,67 @@
+{
+  "name": "eror triger",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "12a3c9a9-1231-4dfc-b31b-9c76f06d61d2",
+      "name": "Error Trigger"
+    },
+    {
+      "parameters": {
+        "chatId": "5711902312",
+        "text": "=⚠️ WORKFLOW ERROR DETECTED ⚠️  \nNama Workflow: {{ $workflow.name }} \nID Eksekusi: {{ $execution.id }} \nWaktu: {{ $now }}  \nPesan eror:{{ $json.execution.error.message }}  \nNode Penyebab: {{ $json.execution.lastNodeExecuted }}\n\nDetail Investigasi: Klik tautan di bawah untuk melihat log eksekusi: {{ $json.execution.url }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "5268b4c4-804e-4940-823a-18ea66ea7bf3",
+      "name": "Send a text message",
+      "webhookId": "43fdf89e-94e0-4a41-a80e-ed0b9161165f",
+      "credentials": {
+        "telegramApi": {
+          "id": "LIpFHjVxdzuAYWHE",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Error Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "d6255301-0e0f-4877-b47b-e49d7b7cbabe",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "yeSyOKWVXLvVL07p",
+  "tags": []
+}

@@ -1,0 +1,265 @@
+{
+  "name": "capaian",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -304,
+        -16
+      ],
+      "id": "a459cb02-dfc2-4ec5-8fe2-e30d6b58f822",
+      "name": "Telegram Trigger",
+      "webhookId": "98bc68dc-229b-4a35-80b0-029cf4ee60a0",
+      "credentials": {
+        "telegramApi": {
+          "id": "dOXbdYTG4J36EL3e",
+          "name": "Telegram account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9dac0820-b4de-4510-a675-1f1f4f38aeb5",
+              "name": "nama",
+              "value": "={{$json.message.text.toLowerCase().trim()}}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -96,
+        -16
+      ],
+      "id": "6ee0b418-fde0-4204-9c0f-43455e118213",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1QOZrgqBclJ8fg-HRO1aJkLFaXPP_LuoXb5b8YnrE8Fo",
+          "mode": "list",
+          "cachedResultName": "capaian murid",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QOZrgqBclJ8fg-HRO1aJkLFaXPP_LuoXb5b8YnrE8Fo/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1QOZrgqBclJ8fg-HRO1aJkLFaXPP_LuoXb5b8YnrE8Fo/edit#gid=0"
+        },
+        "filtersUI": {
+          "values": [
+            {
+              "lookupColumn": "nama",
+              "lookupValue": "={{ $node[\"Edit Fields\"].json[\"nama\"] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        112,
+        -16
+      ],
+      "id": "376a7a9d-c759-454a-ae07-464b62c9447b",
+      "name": "Get row(s) in sheet",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "Wk87Q1L4XduLuOv5",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "6d0350c1-98ea-44d5-8251-5a3d9beb5873",
+              "leftValue": "={{ $json.nama ? true : false }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        528,
+        -16
+      ],
+      "id": "fb189ca4-3326-427e-8235-3fb9aaabb1e4",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "=📊 Data Capaian Murid\n\nNama: {{$json.nama}}\nHafalan: {{$json[\"jumlah hafalan\"]}}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        752,
+        -32
+      ],
+      "id": "21ee7d8a-49b9-4976-8e36-15fc1b14b10d",
+      "name": "Send a text message",
+      "webhookId": "26441781-9819-44d0-915e-02dcd6d1eea6",
+      "credentials": {
+        "telegramApi": {
+          "id": "dOXbdYTG4J36EL3e",
+          "name": "Telegram account 4"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Ambil input nama dari user\nconst inputNama = $items(\"Edit Fields\")[0].json.nama || \"\";\n\n// Cek apakah ada data dari Google Sheets\nif (!items || items.length === 0) {\n    return [{ json: { ditemukan: false } }];\n}\n\n// Cari data yang cocok\nconst result = items.find(item => {\n    // Pastikan field \"nama\" di sheet tidak kosong sebelum di-toLowerCase\n    const namaDiSheet = item.json.nama ? item.json.nama.toString().toLowerCase().trim() : \"\";\n    return namaDiSheet === inputNama.toLowerCase().trim();\n});\n\nif (result) {\n    return [result];\n} else {\n    return [{ json: { ditemukan: false } }];\n}"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        320,
+        -16
+      ],
+      "id": "67710d48-1008-48e6-804e-46bd82fae913",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.from.id }}",
+        "text": "=Data tidak ditemukan ❌\nPastikan nama sesuai ya",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        752,
+        112
+      ],
+      "id": "5c40b8c4-588f-40a1-bebf-17c4cc551bfe",
+      "name": "Send a text message1",
+      "webhookId": "26441781-9819-44d0-915e-02dcd6d1eea6",
+      "credentials": {
+        "telegramApi": {
+          "id": "dOXbdYTG4J36EL3e",
+          "name": "Telegram account 4"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "7eafe969-046b-4ae1-a2ca-173da849a88c",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "QdhvmaxIsGY5Ycug",
+  "tags": []
+}

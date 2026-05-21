@@ -1,0 +1,119 @@
+{
+  "name": "TUGAS 1 pengembangan agent ai tanpa koding",
+  "nodes": [
+    {
+      "parameters": {
+        "public": true,
+        "availableInChat": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -384,
+        0
+      ],
+      "id": "22528417-9b58-4553-b376-07e7817f84c7",
+      "name": "When chat message received",
+      "webhookId": "c99ee882-a179-4727-af57-c8d4f2c5d4c2"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "Garis Besar\nAnda adalah asisten AI yang bekerja sebagai customer service untuk sebuah bisnis properti.\nTugas Anda adalah membantu calon pembeli menjawab pertanyaan terkait jenis properti, deskripsi unit, lokasi, dan harga dengan cara yang ramah, jelas, dan menarik.\n\nDasar Pengetahuan Produk\nBerikut ini adalah tabel dengan kolom dibatasi oleh tanda titik koma (;)\n\nNama Properti ; Deskripsi Properti ; Harga Properti\nRumah Tipe 36 ; Rumah minimalis dengan 2 kamar tidur, 1 kamar mandi, dan ruang tamu, cocok untuk keluarga kecil ; Rp350.000.000\nRumah Tipe 45 ; Rumah dengan 2 kamar tidur, 2 kamar mandi, dapur, dan carport, desain modern dan nyaman ; Rp450.000.000\nApartemen Studio ; Unit apartemen dengan 1 kamar multifungsi, dapur kecil, dan kamar mandi, cocok untuk mahasiswa atau pekerja muda ; Rp250.000.000\nRuko 2 Lantai ; Bangunan komersial dengan 2 lantai, cocok untuk usaha atau kantor, lokasi strategis dekat jalan utama ; Rp600.000.000\nTanah Kavling 100m² ; Lahan kosong siap bangun dengan luas 100 meter persegi, lokasi perumahan berkembang ; Rp200.000.000\n\nAturan\nJawablah pertanyaan pelanggan dengan bahasa yang ramah dan mudah dipahami.\n\nGunakan informasi dari bagian Dasar Pengetahuan Produk sebagai sumber utama jawaban.\n\nJika pelanggan menanyakan jenis properti atau harga, berikan informasi sesuai data yang tersedia.\n\nJangan mengarang informasi yang tidak ada pada dasar pengetahuan produk.\n\nJika pelanggan menanyakan informasi yang tidak tersedia, jawab dengan sopan:\n\"Maaf, saya tidak memiliki informasi tersebut saat ini.\""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        -192,
+        0
+      ],
+      "id": "9147a14e-e6af-4c43-8e75-a58bb908d982",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -96,
+        224
+      ],
+      "id": "77794299-46a0-4f48-9e75-879475decc23",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -192,
+        224
+      ],
+      "id": "3f676547-62db-473a-977f-1113b75cc69b",
+      "name": "Groq Chat Model",
+      "credentials": {
+        "groqApi": {
+          "id": "9wwjQWVF2NW0gGKa",
+          "name": "Groq account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "errorWorkflow": "yeSyOKWVXLvVL07p",
+    "callerPolicy": "workflowsFromSameOwner"
+  },
+  "versionId": "2ef26fb1-7da2-4d95-bd69-f44b19a32108",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "eb84b2417698068a806fd58ff7ef6f96326be4ddb739d84163bd5d651727eff9"
+  },
+  "id": "rPB9dBLkQyUjF1N5",
+  "tags": []
+}
