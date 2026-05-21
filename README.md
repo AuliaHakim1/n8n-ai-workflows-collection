@@ -37,42 +37,42 @@ Berkas-berkas diatur secara modular berdasarkan fungsinya:
 │   ├── 📄 TUGAS 1 pengembangan agent ai tanpa koding.pdf # Laporan analisis Agen AI
 │   │
 │   ├── 📂 [Implementasi AI Keuangan]
-│   │   ├── 📄 workflow form to pdf invoice Pertemuan 1 tugas 1 implementasi ai keuangan.json
-│   │   ├── 📄 workflow transaction router sheet Tugas 2 pertemuan 2 implementasi ai keuangan.json
-│   │   ├── 📄 workflow sheet analytics telegram Tugas 2 pertemuan 6 implementasi ai keuangan.json
-│   │   ├── 📄 workflow sheets deduplication Tugas 3 pertemuan 3 implementasi ai keuangan.json
-│   │   ├── 📄 workflow bank data reconciliation tugas 4 pertemuan 4 implementasi ai keuangan.json
-│   │   ├── 📄 workflow stock news aggregator telegram tugas 5 pertemuan 5 implementasi ai keuangan.json
-│   │   ├── 📄 workflow email parser llm telegram Tugas 1 pertemuan 6 implementasi ai keuangan.json
-│   │   ├── 📄 workflow transactions analysis telegram Tugas pertemuan 7 implementasi ai keuangan.json
-│   │   └── 📄 workflow stock prices watcher Tugas pertwmuan 8 implementasi ai keuangan.json
+│   │   ├── 📄 workflow form to pdf invoice tugas 1 pertemuan 1 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow transaction router sheet tugas 2 pertemuan 2 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow sheet analytics telegram tugas 2 pertemuan 6 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow sheets deduplication tugas 3 pertemuan 3 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow bank data reconciliation tugas 4 pertemuan 4 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow stock news aggregator telegram tugas 5 pertemuan 5 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow email parser llm telegram tugas 1 pertemuan 6 implementasi ai untuk keuangan.json
+│   │   ├── 📄 workflow transactions analysis telegram tugas pertemuan 7 implementasi ai untuk keuangan.json
+│   │   └── 📄 workflow stock prices watcher tugas pertemuan 8 implementasi ai untuk keuangan.json
 │   │
 │   ├── 📂 [Implementasi AI Pemasaran]
-│   │   ├── 📄 workflow form email response Tugas 1 pertemuan 1 implementasi ai pemasaran.json
-│   │   ├── 📄 workflow image generation telegram Tugas 2 pertemuan 1 implementasi ai pemasaran.json
-│   │   ├── 📄 workflow image generation drive tugas 3 pertemuan 2 implementasi ai pemasaran.json
-│   │   ├── 📄 workflow sheet notifications telegram Tugas 4 pertemuan 3 implementasi ai pemasaran.json
-│   │   ├── 📄 workflow scheduled pdf report Tugas 4 Implementasi AI Pemasaran.json
-│   │   ├── 📄 workflow scheduled pdf report Tugas 4 Implementasi AI Pemasaran (1).json
-│   │   ├── 📄 workflow scheduled pdf report Tugas 5 pertemuan 4 Implementasi AI Pemasaran.json
-│   │   ├── 📄 workflow marketing analytics telegram Tugas 6 pertemuan 5 AI untuk Pemasaran.json
-│   │   └── 📄 workflow interactive content generator telegram Tugas 7 pertemuan 6 implementasi ai pemasaran.json
+│   │   ├── 📄 workflow form email response tugas 1 pertemuan 1 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow image generation telegram tugas 2 pertemuan 1 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow image generation drive tugas 3 pertemuan 2 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow sheet notifications telegram tugas 4 pertemuan 3 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow scheduled pdf report tugas 4 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow scheduled pdf report tugas 4 implementasi ai untuk pemasaran (1).json
+│   │   ├── 📄 workflow scheduled pdf report tugas 5 pertemuan 4 implementasi ai untuk pemasaran.json
+│   │   ├── 📄 workflow marketing analytics telegram tugas 6 pertemuan 5 implementasi ai untuk pemasaran.json
+│   │   └── 📄 workflow interactive content generator telegram tugas 7 pertemuan 6 implementasi ai untuk pemasaran.json
 │   │
 │   ├── 📂 [Implementasi AI SDM / HR]
-│   │   ├── 📄 workflow employee onboarding Tugas 1 pertemuan 1 implementasi ai sdm.json
-│   │   ├── 📄 workflow batch resume screener telegram tugas 2 pertemuan 2 implementasi ai sdm.json
-│   │   ├── 📄 workflow resume parser pdfco Tugas 3 pertemuan 3 implementasi ai sdm.json
-│   │   ├── 📄 workflow interactive hr agent telegram Tugas 4 pertemuan 4 Implementasi AI sdm.json
-│   │   ├── 📄 workflow telegram hr request router Tugas 5 pertemuan 5 implementasi AI sdm.json
-│   │   ├── 📄 workflow employee leave validator tugas 6 pertemuan 6 implementasi ai sdm.json
-│   │   ├── 📄 workflow resume screening pipeline Tugas 7 pertemuan 7 implementasi ai sdm.json
-│   │   └── 📄 workflow batch employee evaluator Tugas 8 pertemuan 8 implementasi ai sdm.json
+│   │   ├── 📄 workflow onboarding tugas 1 pertemuan 1 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow batch resume screener telegram tugas 2 pertemuan 2 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow resume parser pdfco tugas 3 pertemuan 3 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow interactive hr agent telegram tugas 4 pertemuan 4 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow telegram hr request router tugas 5 pertemuan 5 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow employee leave validator tugas 6 pertemuan 6 implementasi ai untuk sdm.json
+│   │   ├── 📄 workflow resume screening pipeline tugas 7 pertemuan 7 implementasi ai untuk sdm.json
+│   │   └── 📄 workflow batch employee evaluator tugas 8 pertemuan 8 implementasi ai untuk sdm.json
 │   │
 │   ├── 📂 [Pengembangan Agent AI Tanpa Koding]
-│   │   ├── 📄 workflow chatbot groq TUGAS 1 pengembangan agent ai tanpa koding.json
-│   │   ├── 📄 workflow chatbot sheet agent TUGAS 2 pengembangan agent ai tanpa koding.json
-│   │   ├── 📄 workflow chatbot rag supabase Tugas 4 ai agent tanpa koding.json
-│   │   └── 📄 workflow chatbot rag postgres memory Tugas 5 Ai agent tanpa koding.json
+│   │   ├── 📄 workflow chatbot groq tugas 1 pengembangan agent ai tanpa koding.json
+│   │   ├── 📄 workflow chatbot sheet agent tugas 2 pengembangan agent ai tanpa koding.json
+│   │   ├── 📄 workflow chatbot rag supabase tugas 4 pengembangan agent ai tanpa koding.json
+│   │   └── 📄 workflow chatbot rag postgres memory tugas 5 pengembangan agent ai tanpa koding.json
 │   │
 │   └── 📂 [Latihan & Utilitas Umum]
 │       ├── 📄 workflow chatbot sheets 13 maret.json
@@ -80,8 +80,8 @@ Berkas-berkas diatur secara modular berdasarkan fungsinya:
 │       ├── 📄 workflow telegram monitoring capaian.json
 │       ├── 📄 workflow error handler telegram notifier eror triger.json
 │       ├── 📄 workflow latihan data merging merge.json
-│       ├── 📄 workflow latihan merging data My workflow (2).json
-│       ├── 📄 workflow rss reader loop My workflow 3.json
+│       ├── 📄 workflow latihan merging data my workflow (2).json
+│       ├── 📄 workflow rss reader loop my workflow 3.json
 │       └── 📄 workflow simple gemini chatbot tugas 7.json
 ```
 
@@ -96,8 +96,8 @@ Kategori ini berfokus pada automasi data keuangan, pelacakan pengeluaran, pengka
   * **Analisis Data & Konsiliasi:** Pembersihan data bank dan rekonsiliasi pengeluaran secara terjadwal.
   * **Notifikasi Saham:** Pelacak harga saham berkala (AAPL, MSFT) yang dikirim langsung ke Telegram.
 * **Berkas Penting:**
-  * `workflow transaction router sheet Tugas 2 pertemuan 2 implementasi ai keuangan.json`
-  * `workflow stock prices watcher Tugas pertwmuan 8 implementasi ai keuangan.json`
+  * `workflow transaction router sheet tugas 2 pertemuan 2 implementasi ai untuk keuangan.json`
+  * `workflow stock prices watcher tugas pertemuan 8 implementasi ai untuk keuangan.json`
 
 ### 2. Implementasi AI Pemasaran (Marketing)
 Kategori ini mencakup pembuatan konten otomatis, penulisan artikel SEO, pembuatan video promosi menggunakan AI, dan automasi media sosial.
@@ -106,8 +106,8 @@ Kategori ini mencakup pembuatan konten otomatis, penulisan artikel SEO, pembuata
   * **Laporan PDF Otomatis:** Mengubah HTML marketing menjadi dokumen PDF profesional menggunakan API PDFShift.
   * **Chatbot Konten Interaktif:** Membuat draf ide konten pemasaran melalui perintah di Telegram Chatbot.
 * **Berkas Penting:**
-  * `workflow video generation Tugas 2 Implementasi AI untuk Pemasaran.json`
-  * `workflow interactive content generator telegram Tugas 7 pertemuan 6 implementasi ai pemasaran.json`
+  * `workflow video generation tugas 2 implementasi ai untuk pemasaran.json`
+  * `workflow interactive content generator telegram tugas 7 pertemuan 6 implementasi ai untuk pemasaran.json`
 
 ### 3. Implementasi AI SDM (Human Resources)
 Fokus pada automasi rekrutmen, pelacakan kinerja karyawan, sistem pengajuan cuti, reimbursement, serta notifikasi Telegram Chatbot untuk karyawan.
@@ -116,8 +116,8 @@ Fokus pada automasi rekrutmen, pelacakan kinerja karyawan, sistem pengajuan cuti
   * **Resume Screener:** Membaca dokumen PDF lamaran (via PDF.co) dan melakukan scoring kecocokan kandidat secara otomatis menggunakan OpenRouter LLM.
   * **Validasi Cuti Karyawan:** Webhook otomatis untuk memvalidasi sisa cuti karyawan di Google Sheets dan mengirimkan notifikasi persetujuan via Email.
 * **Berkas Penting:**
-  * `workflow telegram hr request router Tugas 5 pertemuan 5 implementasi AI sdm.json`
-  * `workflow resume screening pipeline Tugas 7 pertemuan 7 implementasi ai sdm.json`
+  * `workflow telegram hr request router tugas 5 pertemuan 5 implementasi ai untuk sdm.json`
+  * `workflow resume screening pipeline tugas 7 pertemuan 7 implementasi ai untuk sdm.json`
 
 ### 4. Pengembangan Agent AI Tanpa Koding (No-Code AI Agents)
 Studi kasus tingkat lanjut dalam merancang sistem RAG (Retrieval-Augmented Generation) menggunakan LangChain di dalam n8n.
@@ -125,8 +125,8 @@ Studi kasus tingkat lanjut dalam merancang sistem RAG (Retrieval-Augmented Gener
   * **Sistem RAG Pintar:** Menghubungkan **Supabase Vector Store** dengan dokumen PDF untuk pencarian dokumen pintar (seperti kriteria penulisan karya ilmiah).
   * **Memory PostgreSQL:** Menyimpan riwayat obrolan pengguna di database PostgreSQL secara terintegrasi.
 * **Berkas Penting:**
-  * `workflow chatbot rag supabase Tugas 4 ai agent tanpa koding.json`
-  * `workflow chatbot rag postgres memory Tugas 5 Ai agent tanpa koding.json`
+  * `workflow chatbot rag supabase tugas 4 pengembangan agent ai tanpa koding.json`
+  * `workflow chatbot rag postgres memory tugas 5 pengembangan agent ai tanpa koding.json`
 
 ---
 
