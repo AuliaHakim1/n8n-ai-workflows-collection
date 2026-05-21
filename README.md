@@ -139,9 +139,5 @@ Untuk menggunakan salah satu workflow di atas pada instansi n8n lokal atau cloud
 
 ---
 
-## 📄 Lisensi
 
-Repositori ini dilisensikan di bawah lisensi MIT. Silakan gunakan, modifikasi, dan bagikan alur kerja ini untuk kebutuhan akademis maupun komersial Anda.
-
----
-*Dibuat dengan 💻 dan 🤖 oleh [Aulia Hakim](https://github.com/AuliaHakim1).*
+*Dibuat oleh [Aulia Hakim](https://github.com/AuliaHakim1).*
